@@ -17,7 +17,7 @@ document.getElementById('search-form').onsubmit = async function(event) {
 function showSongs(songs) {
     document.getElementById('initial_text').classList.add('invisible');
     document.getElementById('initial_text').classList.remove('m-5');
-    html = `<h1>Artists</h1>
+    html = `<h1>Search Results:</h1>
                 <div class="row">
         `;
 
@@ -26,8 +26,11 @@ function showSongs(songs) {
         html += `
             <div class="col-md-12 col-lg-6 mb-2">
                 <div class="card bg-light text-center">
+                    <div class="card-header">
+                    <h5 class="card-title">${song.title}</h5>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">${song.title}</h5>
+                        <p class="text-muted">${song.artist.name}</p>
                         <a href="${song.link}"class="card-text link-secondary">Click here to listen to the full song</a>
                         <br>
                         <a href="#" data-artist="${song.artist.name}" data-song="${song.title}" class="btn btn-info details-button my-3 font-weight-bold text-light">Lyrics</a>
